@@ -44,23 +44,15 @@ a:hover {
   font-weight: bold;
 }
 
-.game {
-  margin-bottom: 50px;
+#screenshot {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.game img {
-  width: 80%;
-}
-
-.game video {
-  width: 80%;
-}
-
-.links {
-  margin: 25px 0;
-}
-.links a:not(:last-child) {
-  padding: 0 16px 0 0;
+#screenshot img {
+  width: 100%;
+  padding: 10px;
 }
 
 @media (max-width: 600px) {
