@@ -9,7 +9,6 @@
   <link rel="icon" 
       type="image/png" 
       href="img/favicon.png">
-
   <link
   href="https://fonts.googleapis.com/css?family=Roboto+Mono"
   rel="stylesheet"
@@ -26,6 +25,11 @@
     <div class="about">
       I enjoy reading youtube comments at least as much as I enjoy watching the videos. If I want to watch a video, but I'm too early and there aren't enough comments, I'll come back later. Here are some of my favorite comments from 2018-now.
     </div>
+    <div id="buttons">
+      <span id="sad">random poignant</span>
+      <span id="funny">random absurd</span>
+      <br><br>
+    </div>
   </div>
   <div id="screenshot">
     <img id="current-screenshot" src="img/3.png">
@@ -38,16 +42,32 @@
 </div>
 
 <script>
- const NUM_IMG = 53; 
- var slideIndex = 3;
-
-function showDivs(n) {
-  slideIndex += n;
-  if(slideIndex > 53) {slideIndex = 3};
-  const imgName = "img/" + slideIndex + ".png"
-  document.getElementById("current-screenshot").src=imgName;
-}
-
+  // slideshow
+  const NUM_IMG = 53; 
+  var slideIndex = 3;
+  function showDivs(n) {
+    slideIndex += n;
+    if(slideIndex > 53) {slideIndex = 3};
+    const imgName = "img/" + slideIndex + ".png"
+    document.getElementById("current-screenshot").src=imgName;
+  }
+  // random
+  const FUNNY = [14, 24, 28, 30, 35, 38, 41, 47, 51, 52];
+  const SAD = [3, 5, 11, 12, 15, 17, 21, 27, 53];
+        window.onload = function() {
+          var sad = document.getElementById("sad");
+          sad.onclick = function() {
+            slideIndex = SAD[Math.floor(Math.random() * SAD.length)];
+            showDivs(0);
+            return false;
+          }
+           var funny = document.getElementById("funny");
+          funny.onclick = function() {
+            slideIndex = FUNNY[Math.floor(Math.random() * FUNNY.length)];
+            showDivs(0);
+            return false;
+          }
+        }
 </script>
 
 </body>
